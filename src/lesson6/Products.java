@@ -3,14 +3,14 @@ package lesson6;
 public class Products {
 
     public Product type;
-    public int prc;
+    public int price;
     public String name;
     public boolean exist;
 
-    public Products (Product type, int uPrc, String uName, boolean uExist){
+    public Products (Product type, int price, String name, boolean exist){
         this.type = type;
-        prc = uPrc;
-        name = uName;
-        exist = uExist;
+        this.price = price;
+        this.name = name;
+        this.exist = exist;
     }
 }
