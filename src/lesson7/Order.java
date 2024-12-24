@@ -1,23 +1,26 @@
 package lesson7;
 
-import lesson7.Impl.DeliveryServiceImpl;
-import lesson7.Impl.OrderReceiptServiceImpl;
+import lesson7.Impl.DeliveryServiceWindowImpl;
+import lesson7.Impl.OrderOnlineImpl;
+import lesson7.Impl.ProccessOrderServiceImpl;
+import lesson7.Impl.SavingDataServiceImpl;
 
 public class Order {
 
-    private DeliveryServiceImpl deliveryService;
-    private OrderReceiptServiceImpl orderReceiptService;
+    private DeliveryServiceWindowImpl deliveryService;
+    private OrderOnlineImpl orderOnline;
+    private ProccessOrderServiceImpl proccessingOrder;
+    private SavingDataServiceImpl savingData;
 
-    public Order(OrderReceiptServiceImpl orderReceiptService, DeliveryServiceImpl deliveryService){
-        this.orderReceiptService = orderReceiptService;
+    public Order(DeliveryServiceWindowImpl deliveryService, OrderOnlineImpl orderOnline, ProccessOrderServiceImpl proccessingOrder, SavingDataServiceImpl savingData){
+        this.orderOnline = orderOnline;
         this.deliveryService = deliveryService;
+        this.proccessingOrder = proccessingOrder;
+        this.savingData = savingData;
     }
 
-    public DeliveryServiceImpl getDeliveryService() {
+    public DeliveryServiceWindowImpl getDeliveryService() {
         return deliveryService;
     }
 
-    public OrderReceiptServiceImpl getOrderReceiptService() {
-        return orderReceiptService;
-    }
 }

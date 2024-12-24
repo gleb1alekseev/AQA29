@@ -7,14 +7,21 @@ public class MainApp {
 
     public static void main(String[] args) {
 
-        Order order = new Order(OrderReceiptServiceImpl.PHONE, DeliveryServiceImpl.WINDOW);
+        DeliveryServiceWindowImpl deliveryWindow = new DeliveryServiceWindowImpl();
+        DeliveryServiceHomeImpl deliveryHome = new DeliveryServiceHomeImpl();
+        OrderOnlineImpl orderOnline = new OrderOnlineImpl();
+        OrderPhoneImpl orderPhone = new OrderPhoneImpl();
+        ProccessOrderServiceImpl proccessOrder = new ProccessOrderServiceImpl();
+        SavingDataServiceImpl savingData = new SavingDataServiceImpl();
+        Order order = new Order(deliveryWindow, orderOnline, proccessOrder, savingData);
 
         ControlCustomerServiceImpl service = new ControlCustomerServiceImpl(
                 new SavingDataServiceImpl(),
-                new ProccessingOrderServiceImpl(),
-                order.getOrderReceiptService(),
-                order.getDeliveryService());
-        service.controlCustomerService(order);
+                new ProccessOrderServiceImpl(),
+                new OrderPhoneImpl(),
+                new DeliveryServiceWindowImpl()
+        );
 
+        service.controlCustomerService(order);
     }
 }

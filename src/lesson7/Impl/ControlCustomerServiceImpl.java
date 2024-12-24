@@ -6,15 +6,15 @@ import lesson7.services.*;
 public class ControlCustomerServiceImpl implements ControlCustomerService {
 
     private SavingDataService savingDataService;
-    private ProcessingOrderService processingOrderService;
-    private OrderReceiptService orderReceiptService;
-    private DeliveredService deliveredService;
+    private ProcessOrderService processOrderService;
+    private OrderService orderService;
+    private DeliveryService deliveryService;
 
-    public ControlCustomerServiceImpl(SavingDataService savingDataService, ProcessingOrderService processingOrderService, OrderReceiptService orderReceiptService, DeliveredService deliveredService) {
+    public ControlCustomerServiceImpl(SavingDataService savingDataService, ProcessOrderService processOrderService, OrderService orderService, DeliveryService deliveryService) {
         this.savingDataService = savingDataService;
-        this.processingOrderService = processingOrderService;
-        this.orderReceiptService = orderReceiptService;
-        this.deliveredService = deliveredService;
+        this.processOrderService = processOrderService;
+        this.orderService = orderService;
+        this.deliveryService = deliveryService;
     }
 
     @Override
@@ -23,12 +23,13 @@ public class ControlCustomerServiceImpl implements ControlCustomerService {
         savingDataService.savingDataService(order);
 
         System.out.println("step_2");
-        processingOrderService.processingOrderService(order);
+        processOrderService.processOrderService(order);
 
         System.out.println("step_3");
-        orderReceiptService.orderReceiptService(order);
+        orderService.orderService(order);
 
         System.out.println("step_4");
-        deliveredService.deliveredService(order);
+        deliveryService.deliveryService(order);
     }
+
 }
