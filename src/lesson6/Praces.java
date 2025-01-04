@@ -8,7 +8,7 @@ public class Praces {
 
         for (Products products : list) {
             if (type == products.type)
-            System.out.println("Prices " + products.type + " is " + products.prc);
+            System.out.println("Prices " + products.type + " is " + products.price);
         }
     }
 }
